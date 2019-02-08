@@ -27,7 +27,8 @@ pip install requests
 2. Hover your mouse to the <b>Watchlist</b>
 3. Click the <b>Popular Movies</b> section
 <br>
-If you want to use my jupyter notebook code, click this ![link](https://www.imdb.com/search/titlecount=100&title_type=feature,tv_series&ref_=nv_wl_img_2)
+If you want to use my jupyter notebook code, click this link
+
 ![image](https://github.com/Reljod/Data-Scraping-IMDB-Movie-Site-using-Python/blob/master/imdb/imdbweb.png)
 
 ##
