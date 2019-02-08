@@ -26,9 +26,16 @@ pip install requests
 1. Go to IMDb movie website
 2. Hover your mouse to the <b>Watchlist</b>
 3. Click the <b>Popular Movies</b> section
-<br>
-If you want to use my jupyter notebook code, click this link [link](https://www.imdb.com/search/title?count=100&title_type=feature,tv_series&ref_=nv_wl_img_2)
 
+If you want to use my Jupyter notebook, use this link:
+[IMDb](https://www.imdb.com/search/title?count=100&title_type=feature,tv_series&ref_=nv_wl_img_2)
 ![image](https://github.com/Reljod/Data-Scraping-IMDB-Movie-Site-using-Python/blob/master/imdb/imdbweb.png)
-
-##
+## Use Google Chrome Developer Tools
+Use Google Chrome Developer Tools to inspect <b>elements</b> or the data of the website.
+Right Click mouse then Inspect
+![right-click](https://github.com/Reljod/Data-Scraping-IMDB-Movie-Site-using-Python/blob/master/imdb/right-click-inspect.png)
+Find the Elements that correspond to the data we're getting
+![hover-mouse-content](https://github.com/Reljod/Data-Scraping-IMDB-Movie-Site-using-Python/blob/master/imdb/highlight-elements.png)
+![hover-mouse-movie](https://github.com/Reljod/Data-Scraping-IMDB-Movie-Site-using-Python/blob/master/imdb/highlight-firstmovie.png)
+![hover-mouse-title](https://github.com/Reljod/Data-Scraping-IMDB-Movie-Site-using-Python/blob/master/imdb/hightlight-target-text.png)
+<b>Keep in mind</b> that one need to find the source of the data before getting it. In the case of the IMDb movie website, the structure of the data of the 1st movie is similar to the structure of those remaining 99 movies. We can take advantage of that later.
