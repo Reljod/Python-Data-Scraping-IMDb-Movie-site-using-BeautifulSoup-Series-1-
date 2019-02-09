@@ -245,6 +245,22 @@ class IMDB(object):
 							movieDirector, movieStars, movieVotes, movieGross]
 		return movieData
 ```
+### Check the result using the IMDB class
+```
+id1 = IMDB(url1)
+#Get Article Title
+print(id1.articleTitle())
+#Get the first 5 movie data using for loop
+for i in range(5):
+	print(movieData[i][:5])
+```
+Result should be:
+![imdbData](https://github.com/Reljod/Data-Scraping-IMDB-Movie-Site-using-Python/blob/master/imdb/imdbData.png)
+
+## What's next?
+The data we extracted from the website should be <b>cleaned</b> first before using it for <b>data analyzation</b> or <b>machine learning</b> but it will be done on my next project using exactly the data that we've been extracted so far.
+
+## Thank You!!
 
 ## Authors
 
