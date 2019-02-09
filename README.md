@@ -92,7 +92,7 @@ To get the first movie only, use movieFrame[0]
 movieFrame = content.find_all("div", class_="lister-item mode-advanced")
 ```
 ### Getting the Movie Title and Movie Date
-![first-line](https://github.com/Reljod/Data-Scraping-IMDB-Movie-Site-using-Python/upload/master/imdb/first-line.png)
+![first-line](https://github.com/Reljod/Data-Scraping-IMDB-Movie-Site-using-Python/blob/master/imdb/first-line.png)
 We need to first get the line where the title and the date contains because the tags that holds those values are too <b>common</b> and using find might not get it to <b>appear</b>.<br>
 <b>.find("a")</b> returns the first line that has a <b>tag "a"</b><br>
 <b>.find_all("span")</b> returns all lines that has a tag of "span". Because we only want the date, we only return the second line denoted by ("span")[-1]<br>
