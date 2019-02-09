@@ -45,6 +45,64 @@ Find the Elements that correspond to the data we're getting
 [Step-by-Step-Jupyter-Notebook-Code](https://github.com/Reljod/Data-Scraping-IMDB-Movie-Site-using-Python/blob/master/jupyter-notebook/IMDBwebscraping.ipynb)
 ### IMDb class jupyter notebook code (full):
 [Full-code](https://github.com/Reljod/Data-Scraping-IMDB-Movie-Site-using-Python/blob/master/jupyter-notebook/IMDb-Web-Scraping-Full-Code.ipynb)
+## Step-by-Step python code
+**Import modules**
+```
+import pandas as pd
+import numpy as np
+import re
+import lxml
+
+from bs4 import BeautifulSoup
+from requests import get
+%matplotlib inline
+```
+**Get the page link**
+```
+url= "https://www.imdb.com/search/title?count=100&title_type=feature,tv_series&ref_=nv_wl_img_2"
+```
+<dl>
+  <dt><b>Get page data</b></dt>
+  <dd>- Get page using requests.get<br></dd>
+  <dd>- Parse page using BeautifulSoup and lxml</dd>
+</dl>
+
+```
+page = get(url)
+soup = BeautifulSoup(page.content, 'lxml') 
+```
+
+<b>Get the Element or tag that holds the <i>movie</i> contents</b><br>
+![id-main-image](https://github.com/Reljod/Data-Scraping-IMDB-Movie-Site-using-Python/blob/master/imdb/idmain.png)
+```
+content = soup.find(id="main")
+```
+### Get Article Title
+soup.find("h1", class_="header")** finds the first line that has **h1** tag and has a **class** header.<br>
+.text** gets the text of that line or that element.<br>
+.replace("\n","")** just erases **\n**.
+```
+articleTitle = soup.find("h1", class_="header").text.replace("\n","")
+```
+### Get the contents of one movie content
+![movie-frame](https://github.com/Reljod/Data-Scraping-IMDB-Movie-Site-using-Python/blob/master/imdb/highlight-movie-frame.png)
+Find_all returns a <b>list</b> of all instances that has the <b>tags</b> specified (i.e. "div", "class")<br>
+To get the first movie only, use movieFrame[0]
+```
+movieFrame = content.find_all("div", class_="lister-item mode-advanced")
+```
+### Getting the Movie Title and Movie Date
+![first-line](https://github.com/Reljod/Data-Scraping-IMDB-Movie-Site-using-Python/upload/master/imdb/first-line.png)
+We need to first get the line where the title and the date contains because the tags that holds those values are too <b>common</b> and using find might not get it to <b>appear</b>.<br>
+<b>.find("a")</b> returns the first line that has a <b>tag "a"</b><br>
+<b>.find_all("span")</b> returns all lines that has a tag of "span". Because we only want the date, we only return the second line denoted by ("span")[-1]<br>
+<b> .text</b> returns the <b>text value</b> of that line.<br>
+```
+movieFirstLine = movieFrame[0].find("h3", class_="lister-item-header")
+movieTitle = movieFirstLine.find("a").text
+movieDate = re.sub(r"[()]","", movieFirstLine.find_all("span")[-1].text)
+```
+
 
 ## Authors
 
