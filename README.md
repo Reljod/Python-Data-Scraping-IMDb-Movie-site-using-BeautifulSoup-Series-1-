@@ -102,7 +102,43 @@ movieFirstLine = movieFrame[0].find("h3", class_="lister-item-header")
 movieTitle = movieFirstLine.find("a").text
 movieDate = re.sub(r"[()]","", movieFirstLine.find_all("span")[-1].text)
 ```
-
+### Getting the Runtime, genre, rating, score and movie description
+Find the other datas are just the same as what we did with the first ones. Just take note that <b>be more specific</b> in describing the <b>attributes</b> (i.e. class, id, etc.) so that the it will directly return the line that we want to get. 
+```
+movieRunTime = movieFrame[0].find("span", class_="runtime").text[:-4]
+movieGenre = movieFrame[0].find("span", class_="genre").text.rstrip().replace("\n","").split(",")
+movieRating = movieFrame[0].find("strong").text
+movieScore = movieFrame[0].find("span", class_="metascore unfavorable").text.rstrip()
+movieDesc = movieFrame[0].find_all("p", class_="text-muted")[-1].text.lstrip()
+```
+### Getting the movie casts and directors
+Movies w/o including the directors are troublesome and we need to anticipate that by making that missing value into NaN using np.nan.
+Getting the movie casts is a bit tricky because there is an indefinite number of casts that can be included in each movie, sometimes none, sometimes a few. That is the reason why we need to anticipate those three scenarios.<br>
+Take a look at the <b>code</b>:
+```
+#Movie Director and Movie Stars
+try:
+    casts = movieCast.text.replace("\n","").split('|')
+    casts = [x.strip() for x in casts]
+    casts = [casts[i].replace(j, "") for i,j in enumerate(["Director:", "Stars:"])]
+    movieDirector = casts[0]
+    movieStars = [x.strip() for x in casts[1].split(",")]
+except:
+    casts = movieCast.text.replace("\n","").strip()
+    movieDirector = np.nan
+    movieStars = [x.strip() for x in casts.split(",")]
+```
+##### Same scenario with the votes and gross
+We can get an attribute by including it to the attrs dictionary and adding its value to it.
+```
+movieNumbers = movieFrame[0].find_all("span", attrs={"name": "nv"})
+if len(movieNumbers) == 2:
+    movieVotes = movieNumbers[0].text
+    movieGross = movieNumbers[1].text
+else:
+    movieVotes = movieNumbers[0].text
+    movieGross = np.nan
+```
 
 ## Authors
 
