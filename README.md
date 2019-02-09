@@ -141,6 +141,10 @@ else:
 ```
 ### Full code
 ```
+'''
+Author: Reljod T. Oreta PUP-Manila
+BSECE 5th year
+'''
 import lxml
 import re
 import numpy as np
