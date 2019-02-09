@@ -8,9 +8,11 @@ Now, if one wants to analyze what's the trend movie currently and use that data 
 # Data Scraping using PYTHON
 We use <b>Python</b> because it is one of the most used languages in data science and also because it is the language that I am most <b>familiar</b> with.
 ## Install Important Packages 
-(If you already done this part, you can skip this part)
+(If you're already done in this part, just <b>skip this</b>)
 <br>
 ### On Windows
+**Note:** Make sure that you already installed the Python before pip-installing the following packages.<br>
+
 Open <i>Command Prompt</i> or cmd<br>
 Type the following:
 ```
@@ -19,6 +21,19 @@ pip install numpy
 pip install pandas
 pip install bs4
 pip install requests
+```
+
+### On Linux
+**Note:** Make sure that you already installed the Python before aptget-installing the following packages.<br>
+
+Open the <i>Terminal</i><br>
+Type the following:
+```
+apt-get install lxml
+apt-get install numpy
+apt-get install pandas
+apt-get install bs4
+apt-get install requests
 ```
 
 # Going to IMDb Website
