@@ -1,4 +1,4 @@
-# Data-Scraping-IMDB-Movie-Site-using-Python
+# Python Data Scraping IMDb Movie site using BeautifulSoup
 Data Scraping and Data Wrangling using Python BeautifulSoup
 
 ## Data Scraping the TOP 100 most popular videos in IMDb in 2019
