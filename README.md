@@ -262,7 +262,7 @@ The data we extracted from the website should be <b>cleaned</b> first before usi
 
 ## Thank You!!
 
-## Authors
+## Author
 
 * **Reljod T. Oreta**- [**Reljod**](https://github.com/Reljod)
 
